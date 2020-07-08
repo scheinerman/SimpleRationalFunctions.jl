@@ -1,0 +1,17 @@
+name = "SimpleRationalFunctions"
+uuid = "1a520dc8-4f4e-523b-a9bd-3b3d46c5454b"
+version = "0.0.0"
+
+[deps]
+SimplePolynomials = "cc47b68c-3164-5771-a705-2bc0097375a0"
+
+[compat]
+julia = "1"
+SimplePolynomials = "0"
+
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
