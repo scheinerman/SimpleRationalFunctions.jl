@@ -34,6 +34,7 @@ SimpleRationalFunction(a::T) where T<:CoefX = SimpleRationalFunction(SimplePolyn
 SimpleRationalFunction(a::T,f::SimplePolynomial) where T<:CoefX = SimpleRationalFunction(SimplePolynomial(a),f)
 SimpleRationalFunction(f::SimplePolynomial,a::T) where T<:CoefX = SimpleRationalFunction(f,SimplePolynomial(a))
 SimpleRationalFunction(a::T, b::S) where {T<:CoefX,S<:CoefX} = SimpleRationalFunction(a//b)
+SimpleRationalFunction() = SimpleRationalFunction(0)
 
 numerator(f::SimpleRationalFunction) = f.num
 denominator(f::SimpleRationalFunction) = f.den
