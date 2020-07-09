@@ -3,7 +3,7 @@ module SimpleRationalFunctions
 using SimplePolynomials
 
 import SimplePolynomials: CoefX
-import Base: numerator, denominator, show, (==)
+import Base: numerator, denominator, show, (==), string
 
 export SimpleRationalFunction
 
@@ -44,13 +44,17 @@ denominator(f::SimpleRationalFunction) = f.den
 (==)(f::SimpleRationalFunction,a::T) where T<:CoefX = f==SimpleRationalFunction(a)
 (==)(a::T,f::SimpleRationalFunction) where T<:CoefX = f==a
 
-(f::SimpleRationalFunction)(x::T) where T<:Number = f.num(x)/f.den(x)
+(f::SimpleRationalFunction)(x) = f.num(x)/f.den(x)
+
+function string(f::SimpleRationalFunction)
+    return "(" * string(f.num) * ") / (" * string(f.den) * ")"
+end
 
 function show(io::IO, f::SimpleRationalFunction)
-    print(io,f.num)
-    print(io," / ")
-    print(io,f.den)
+    print(io,string(f))
 end
+
+
 
 include("arithmetic.jl")
 
