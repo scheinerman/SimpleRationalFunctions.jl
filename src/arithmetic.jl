@@ -60,9 +60,12 @@ SimpleThing = Union{SimplePolynomial,SimpleRationalFunction}
 
 
 function (^)(p::SimpleRationalFunction, k::S) where S<:Integer
-    @assert k >= 0 "Exponent must be nonnegative [$k]"
     if k == 0
         return SimpleRationalFunction(1)
+    end
+
+    if k<0
+        return (inv(p))^(-k)
     end
 
     if k == 1
