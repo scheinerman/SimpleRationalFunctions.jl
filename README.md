@@ -34,7 +34,7 @@ a monic polynomial.
 ## Operations
 
 The standard operations (addition, subtraction, multiplication, division,
-  and exponentiation by a nonnegative integer) are all supported.
+  and exponentiation by an integer) are all supported.
 
 Evaluation of a `SimpleRationalFunction` uses the standard notation:
 ```
@@ -56,4 +56,37 @@ julia> numerator(f)
 
 julia> denominator(f)
 -1 + x
+```
+
+The derivative of a `SimpleRationalFunction` can be found with
+`derivative(f)` or `f'`.
+```
+julia> f = (1-x^2)/(3+x^3)
+(1 - x^2) / (3 + x^3)
+
+julia> f'
+(-6*x - 3*x^2 + x^4) / (9 + 6*x^3 + x^6)
+```
+
+(Integration is not supported as the integral of a rational function
+might not be a rational function.)
+
+## Three-line printing
+
+The function `string(f)` returns a one-line string representation of
+the `SimpleRationalFunction`. The function `string3` gives a three-line
+representation that shows `f` as a fraction.
+```
+julia> f = (x-2)^3 / (x^2+1)
+(-8 + 12*x - 6*x^2 + x^3) / (1 + x^2)
+
+julia> println(string3(f))
+-8 + 12*x - 6*x^2 + x^3
+-----------------------
+        1 + x^2
+
+julia> println(string3(f^3))
+-512 + 2304*x - 4608*x^2 + 5376*x^3 - 4032*x^4 + 2016*x^5 - 672*x^6 + 144*x^7 - 18*x^8 + x^9
+--------------------------------------------------------------------------------------------
+                                  1 + 3*x^2 + 3*x^4 + x^6
 ```

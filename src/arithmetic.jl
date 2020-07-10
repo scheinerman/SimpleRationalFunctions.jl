@@ -56,9 +56,6 @@ SimpleThing = Union{SimplePolynomial,SimpleRationalFunction}
 
 
 # exponentiation
-
-
-
 function (^)(p::SimpleRationalFunction, k::S) where S<:Integer
     if k == 0
         return SimpleRationalFunction(1)
@@ -86,3 +83,14 @@ function (^)(p::SimpleRationalFunction, k::S) where S<:Integer
     q = p^j
     return q * q * p
 end
+
+# derivative
+import SimplePolynomials: derivative
+import Base: adjoint
+
+function derivative(f::SimpleRationalFunction)
+    p = numerator(f)
+    q = denominator(f)
+    return (p'*q - q'*p)/(q*q)
+end
+adjoint(f::SimpleRationalFunction) = derivative(f)
