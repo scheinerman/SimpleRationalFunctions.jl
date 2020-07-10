@@ -90,3 +90,17 @@ julia> println(string3(f^3))
 --------------------------------------------------------------------------------------------
                                   1 + 3*x^2 + 3*x^4 + x^6
 ```
+
+We can make three-line printing the standard way for Julia to present
+rational functions in the REPL as follows:
+```
+julia> import Base.show
+
+julia> show(io::IO, f::SimpleRationalFunction) = print(io,string3(f))
+show (generic function with 247 methods)
+
+julia> f = (x-2)^3 / (x^2+1)
+-8 + 12*x - 6*x^2 + x^3
+-----------------------
+        1 + x^2
+```
