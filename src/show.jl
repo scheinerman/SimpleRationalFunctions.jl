@@ -1,9 +1,23 @@
 import Base: show, string
 export string3
 
-function string(f::SimpleRationalFunction)
-    return "(" * string(f.num) * ") / (" * string(f.den) * ")"
+
+function pstring(p::SimplePolynomial)
+    nterms = count((x) -> (x!=0), p.data)
+    if nterms <= 1
+        return string(p)
+    end
+    return "(" * string(p) * ")"
 end
+
+
+function string(f::SimpleRationalFunction)
+    return pstring(f.num) * " / " * pstring(f.den)
+end
+
+
+
+
 
 function show(io::IO, f::SimpleRationalFunction)
     print(io,string(f))

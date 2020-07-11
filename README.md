@@ -25,7 +25,7 @@ julia> x = getx()
 x
 
 julia> f = (x-1)/(x^2-1)
-(1) / (1 + x)
+1 / (1 + x)
 ```
 Notice that the common factor of `x-1` is removed. In general,
 rational functions are in reduced form and the denominator is
