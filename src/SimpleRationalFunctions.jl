@@ -3,7 +3,7 @@ module SimpleRationalFunctions
 using SimplePolynomials
 
 import SimplePolynomials: CoefX
-import Base: numerator, denominator, (==)
+import Base: numerator, denominator, (==), zero, one, big
 
 export SimpleRationalFunction
 
@@ -46,6 +46,13 @@ denominator(f::SimpleRationalFunction) = f.den
 (==)(a::T,f::SimpleRationalFunction) where T<:CoefX = f==a
 
 (f::SimpleRationalFunction)(x) = f.num(x)/f.den(x)
+
+zero(::Type{SimpleRationalFunction}) = SimpleRationalFunction(0,1)
+zero(::SimpleRationalFunction) = SimpleRationalFunction(0,1)
+one(::Type{SimpleRationalFunction}) = SimpleRationalFunction(1,1)
+one(::SimpleRationalFunction) = SimpleRationalFunction(1,1)
+
+big(f::SimpleRationalFunction) = SimpleRationalFunction(big(f.num),big(f.den))
 
 
 
