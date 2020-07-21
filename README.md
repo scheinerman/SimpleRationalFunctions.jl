@@ -1,11 +1,14 @@
 # SimpleRationalFunctions
 
+---
 
-[![Build Status](https://travis-ci.org/scheinerman/SimpleRationalFunctions.jl.svg?branch=master)](https://travis-ci.org/scheinerman/SimpleRationalFunctions.jl)
+# This package has been discontinued!
 
-[![Coverage Status](https://coveralls.io/repos/scheinerman/SimpleRationalFunctions.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/scheinerman/SimpleRationalFunctions.jl?branch=master)
+The `SimpleRationalFunction` type is now part of my `SimplePolynomials` package.
+This documentation is left here temporarily once we have everything ported over.
 
-[![codecov.io](http://codecov.io/github/scheinerman/SimpleRationalFunctions.jl/coverage.svg?branch=master)](http://codecov.io/github/scheinerman/SimpleRationalFunctions.jl?branch=master)
+----
+
 
 The `SimpleRationalFunctions` module extends the `SimplePolynomials` module
 to include fractions whose numerator and denominator are polynomials.
