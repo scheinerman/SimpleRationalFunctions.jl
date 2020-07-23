@@ -1,13 +1,9 @@
 name = "SimpleRationalFunctions"
 uuid = "1a520dc8-4f4e-523b-a9bd-3b3d46c5454b"
-version = "0.0.1"
-
-[deps]
-SimplePolynomials = "cc47b68c-3164-5771-a705-2bc0097375a0"
+version = "0.0.2"
 
 [compat]
 julia = "1"
-SimplePolynomials = "0"
 
 
 [extras]
